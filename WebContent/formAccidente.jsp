@@ -1,7 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -15,21 +16,15 @@
             color: whitesmoke;
         }
 
-        #formaccidente {
-            border-radius: 5px;
-            margin-top: 10px;
-        }
-
-        .image {
-            width: 100%;
-            height: auto;
+        div .col {
+            border-radius: 20px;
         }
     </style>
-    <title>Accidente</title>
+    <title>Visita</title>
 </head>
 
 <body>
-  <% HttpSession sesion = request.getSession(); 
+   <% HttpSession sesion = request.getSession(); 
 	String usuario ="";
     if(sesion.getAttribute("usuario") != null){
     	usuario = sesion.getAttribute("usuario").toString();
@@ -61,72 +56,180 @@
         <li><a href="perfil.jsp">Perfil</a></li>
         <li><a href="collapsible.html">JavaScript</a></li>
         <li>
-            <div class="divider"></div>
+        <div class="divider"></div>
         </li>
         <li><a class="cs" href="logout">Cerrar Sesión</a></li>
     </ul>
-
     <div class="container">
-        <div class="row">
-            <article id="formaccidente" class="col s12 m12 l12 ">
-                <h3 class="center-align">ACCIDENTE</h3>
-                <img class="image"
-                    src="https://ayudamelegal.com/wp-content/uploads/2016/09/Accidente-Laboral-en-una-Construcci%C3%B3n.jpg"
-                    alt="accidente">
-                <form method="POST" action="accidente">
-                    <div class="input-field">
-                        <i class="material-icons prefix">perm_identity</i>
-                        <label for="nombre">Nombre</label>
-                        <input type="text" name="nombre" required>
-                    </div>
-
-                    <div class="input-field">
-                        <i class="material-icons prefix">person_pin</i>
-                        <label for="apellido">Apellido</label>
-                        <input type="text" name="apellido" required>
-                    </div>
-
-                    <div class="input-field">
-                        <i class="material-icons prefix">accessibility
-                        </i>
-                        <select name="opaccidente">
-                            <option value="" disabled selected>Seleccione Tipo De Accidente</option>
-                            <option value="">Caida</option>
-                            <option value="">Quemadura</option>
-                            <option value="">Atropello</option>
-                        </select>
-                    </div>
-                    <div class="input-field">
-                        <p>
-                            <label>
-                                <input class="with-gap" name="group3" type="radio" checked />
-                                <span>Trabajador</span>
-                            </label>
-                        </p>
-                        <p>
-                            <label>
-                                <input class="with-gap" name="group3" type="radio" />
-                                <span>Administrativo</span>
-                            </label>
-                        </p>
-                    </div>
-                    <div class="input-field">
-                        <i class="material-icons prefix">mode_edit</i>
-                        <label for="mensaje">Descripción</label>
-                        <textarea name="mensaje" id="" rows="10" class="materialize-textarea" length="140"
-                            required></textarea>
-                    </div>
-
-                    <p class="center-align">
-                        <button class="waves-effect waves-teal btn" type="submit"><i
-                                class="material-icons right">send</i>enviar</button>
+        <h3 class="blue white-text">Formulario de Accidente</h3>
+        <form action="">
+            <div class="row">
+                <div class="col s12 l2  blue-grey lighten-5">
+                    <input type="text" name="txtserie" readonly>
+                    <label for="txtserie">Serie</label>
+                </div>
+                <div class="col s12 l2  blue-grey lighten-5 ">
+                    <input type="text" name="txtfecha" readonly>
+                    <label for="txtfecha">Fecha</label>
+                </div>
+            </div>
+            <hr>
+            <p><strong>Identificacion del Empleador</strong></p>
+            <div class="row">
+                <div class="col s12 l6 blue-grey lighten-5">
+                    <input type="text" name="txtrazon">
+                    <label for="txtrazon">Nombre o Razón Social</label>
+                </div>
+                <div class="col s12 l4 blue-grey lighten-5">
+                    <input type="text" name="txtrutempresa">
+                    <label for="txtrutempresa">Rut</label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col s12 l6 blue-grey lighten-5">
+                    <input type="text" name="txtdireccion">
+                    <label for="txtdireccion">Direccion/Depto/nro</label>
+                </div>
+                <div class="col s12 l3 blue-grey lighten-5">
+                    <input type="text" name="txtcomempre">
+                    <label for="txtcomempre">Comuna</label>
+                </div>
+                <div class="col s12 l3 blue-grey lighten-5">
+                    <input type="text" name="txttel">
+                    <label for="txttel">Telefono</label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col s12 l6 blue-grey lighten-5">
+                    <input type="text" name="txtactividad">
+                    <label for="txtactividad">Actividad Economica</label>
+                </div>
+                <div class="col s12 l5 blue-grey lighten-5">
+                    <input type="text" name="txtpropiedad">
+                    <label for="txtpropiedad">Propiedad de la Empresa</label>
+                </div>
+            </div>
+            <div class="row">
+                <p><strong>Tipo de Empresa</strong></p>
+                <div class="col s12 l2 blue-grey lighten-5">
+                    <p>
+                        <label>
+                            <input class="with-gap" name="tipoempresa" type="radio" />
+                            <span>Principal</span>
+                        </label>
                     </p>
-
-                </form>
-
-            </article>
-        </div>
+                </div>
+                <div class="col s12 l2 blue-grey lighten-5">
+                    <p>
+                        <label>
+                            <input class="with-gap" name="tipoempresa" type="radio" />
+                            <span>Contratista</span>
+                        </label>
+                    </p>
+                </div>
+                <div class="col s12 l3 blue-grey lighten-5">
+                    <p>
+                        <label>
+                            <input class="with-gap" name="tipoempresa" type="radio" />
+                            <span>Sub-Contratista</span>
+                        </label>
+                    </p>
+                </div>
+                <div class="col s12 l4 blue-grey lighten-5">
+                    <p>
+                        <label>
+                            <input class="with-gap" name="tipoempresa" type="radio" />
+                            <span>Servicios Transitorios</span>
+                        </label>
+                    </p>
+                </div>
+            </div>
+            <hr>
+            <p><strong>Datos de Trabajador</strong></p>
+            <div class="row">
+                <div class="col s12 l4  blue-grey lighten-5">
+                    <input type="text" name="txtnombrestra">
+                    <label for="txtnombres">Nombres</label>
+                </div>
+                <div class="col s12 l4  blue-grey lighten-5 ">
+                    <input type="text" name="txtapellidostra">
+                    <label for="txtapellidos">Apellidos</label>
+                </div>
+                <div class="col s12 l4  blue-grey lighten-5 ">
+                    <input type="text" name="txtruttra">
+                    <label for="txtruttra">Rut</label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col s12 l6 blue-grey lighten-5">
+                    <input type="text" name="txtdirecciontra">
+                    <label for="txtdireccion">Direccion/Depto/nro</label>
+                </div>
+                <div class="col s12 l3 blue-grey lighten-5">
+                    <input type="text" name="txtcomtra">
+                    <label for="txtcomempre">Comuna</label>
+                </div>
+                <div class="col s12 l3 blue-grey lighten-5">
+                    <input type="text" name="txtteltra">
+                    <label for="txttel">Telefono</label>
+                </div>
+            </div>
+            <div class="row">
+                <p><strong>Sexo</strong></p>
+                <div class="col s12 l2 blue-grey lighten-5">
+                    <p>
+                        <label>
+                            <input class="with-gap" name="sexo" type="radio" />
+                            <span>Hombre</span>
+                        </label>
+                    </p>
+                </div>
+                <div class="col s12 l2 blue-grey lighten-5">
+                    <p>
+                        <label>
+                            <input class="with-gap" name="sexo" type="radio" />
+                            <span>Mujer</span>
+                        </label>
+                    </p>
+                </div>
+                <div class="col s12 l2 blue-grey lighten-5">
+                    <input type="number" name="txteda">
+                    <label for="txteda">Edad</label>
+                </div>
+                <div class="col s12 l4 blue-grey lighten-5">
+                    <input type="date" name="txtnacimiento" >
+                    <label for="txtnacimiento">Edad</label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col s12 l4 blue-grey lighten-5">
+                    <input type="text" name="txtnac">
+                    <label for="txtnac">Nacionalidad</label>
+                </div>
+                <div class="col s12 l3 blue-grey lighten-5">
+                    <input type="text" name="txtpro">
+                    <label for="txtpro">Profesión</label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col s12 l2 blue-grey lighten-5">
+                    <input type="text" name="txtanttra">
+                    <label for="txtanttra">Antiguedad Empresa</label>
+                </div>
+                <div class=" input-field  col s12 l4 blue-grey lighten-5">
+                    <select name="tipocontrato" id="">
+                        <option value="" disabled selected>Tipo de Contrato</option>
+                        <option value="">Plazo Fijo</option>
+                        <option value="">Indefinido</option>
+                        <option value="">Por obra o Faena</option>
+                        <option value="">Trabajador Voluntario</option>
+                    </select>
+                </div>
+            </div>
+        </form>
     </div>
+
+
     <!- Compiled and minified JavaScript -->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
         <script>
