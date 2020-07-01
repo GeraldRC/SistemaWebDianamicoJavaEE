@@ -8,7 +8,7 @@
 	</classpathentry>
 	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.web.container"/>
 	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.module.container"/>
-	<classpathentry kind="src" path="/javax.servlet-api-4.0.1"/>
 	<classpathentry kind="lib" path="C:/Users/GRCX/Downloads/jstl-1.2.jar"/>
+	<classpathentry kind="lib" path="C:/Users/GRCX/Downloads/javax.servlet-api-4.0.1.jar"/>
 	<classpathentry kind="output" path="build/classes"/>
 </classpath>
