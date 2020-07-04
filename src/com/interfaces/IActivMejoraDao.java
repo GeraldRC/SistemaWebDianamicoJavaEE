@@ -6,6 +6,7 @@ import com.model.ActivMejora;
 import com.model.Cheklist;
 
 public interface IActivMejoraDao {
+	
 	public boolean  registrarAcme(ActivMejora acme);
 	public boolean modificarAcme();
 	public boolean eliminarAcme();
