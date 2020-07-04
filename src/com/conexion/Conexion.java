@@ -16,14 +16,14 @@ public class Conexion {
 	private Conexion() {
 			
 		driver = "oracle.jdbc.driver.OracleDriver";
-		usuario = "//Clave Aca";
-		password =  "// pass Aca";
+		usuario = "BASE";
+		password =  "1234";
 		url = "jdbc:oracle:thin:@localhost:1521:xe";
 			
 		try {
-			Class.forName(driver);
+			//Class.forName(driver);
 			con = DriverManager.getConnection(url, usuario, password);
-		}catch(ClassNotFoundException | SQLException e) {
+		}catch(SQLException e) {
 			e.printStackTrace();
 		}
 
