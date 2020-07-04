@@ -13,6 +13,4 @@ public interface IActivMejoraDao {
 	public ArrayList<ActivMejora> leerAcme();
 	public String obtenerAcme();
 
-	
-	
 }

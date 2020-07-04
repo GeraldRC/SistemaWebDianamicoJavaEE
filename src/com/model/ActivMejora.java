@@ -34,5 +34,4 @@ public class ActivMejora {
 		return "ActivMejora [id=" + id + ", acme=" + acme + "]";
 	}
 		
-
 }
