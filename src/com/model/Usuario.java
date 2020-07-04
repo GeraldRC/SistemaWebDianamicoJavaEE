@@ -4,9 +4,13 @@ package com.model;
 public class Usuario{
 	
 	private int id;
+
 	private int id_rol;
+
+
 	private String nombre;
 	private String apellido;
+
 	private String login;
 	private String contrasena;
 	
@@ -86,7 +90,7 @@ public class Usuario{
 		return "Usuario [id=" + id + ", id_rol=" + id_rol + ", nombre=" + nombre + ", apellido=" + apellido + ", login="
 				+ login + "]";
 	}
-	
+=
 	
 
 }
