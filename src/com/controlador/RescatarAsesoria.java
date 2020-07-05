@@ -36,7 +36,7 @@ public class RescatarAsesoria extends HttpServlet {
 		
 		
 		
-		for() {
+	//	for() {
 			
 		
 		
@@ -46,7 +46,7 @@ public class RescatarAsesoria extends HttpServlet {
 		
 		
 		
-		}
+		//}
 		
 		
 	}
