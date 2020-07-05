@@ -15,14 +15,20 @@
 
 
     <select name="cliente" id="cliente">
-        <option value="volvo">Volvo</option>
-        <option value="saab">Saab</option>
-        <option value="mercedes">Mercedes</option>
-        <option value="audi">Audi</option>
+   		 <c:forEach items="${cheklist}" var="list">
+
+                 <option value="volvo">Volvo</option>
+                 
+                 ${list.getId()}
+
+            </c:forEach>
+    
+    
+        
       </select>
 
 
-    <form action="" method="post">
+    <form action="RescatarAsesoria" method="post">
 
 
         <table>

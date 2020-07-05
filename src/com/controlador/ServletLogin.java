@@ -10,6 +10,10 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import com.dao.UsuarioDao;
+import com.model.Cliente;
+import com.model.Usuario;
+
 @WebServlet("/login")
 public class ServletLogin extends HttpServlet {
 	private static final long serialVersionUID = 1L;
@@ -21,6 +25,7 @@ public class ServletLogin extends HttpServlet {
 		response.getWriter().append("Served at: ").append(request.getContextPath());
 	}
 
+	@SuppressWarnings("unused")
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 	
@@ -28,24 +33,46 @@ public class ServletLogin extends HttpServlet {
 		
 		
 	    PrintWriter out = response.getWriter();
-	    request.getRequestDispatcher("login.jsp").include(request,response);
-		String usu = request.getParameter("usuario");
-		String con = request.getParameter("contrasena");
-		
-		
-		if(usu.trim().length()== 0 || con.trim().length()== 0){
-			out.print("<script>\r\n" + 
-					"        alert(\"Ingrese Datos\");\r\n" + 
-					"    </script>");
-		}else if(usu.equalsIgnoreCase("gerald") && con.equalsIgnoreCase("123")) {
-			HttpSession session=request.getSession();  
-	        session.setAttribute("usuario",usu);
-            request.getRequestDispatcher("index.jsp").forward(request, response);
+	    request.getRequestDispatcher("login.jsp").include(request, response);
+        String usu = request.getParameter("usuario");
+        String con = request.getParameter("contrasena");
+        String rol ="";
+
+        UsuarioDao dao = new UsuarioDao();
+        
+        Usuario u = dao.comprobarUsuario(usu,con);
+        System.out.println(u.getApellido());
+        rol = dao.obtenerRol(u.getId_rol());
+        System.out.println(rol);
+        if (u != null) {
+			if(rol.equalsIgnoreCase("cliente")) {
+				
+				Cliente c = dao.ObtenerDatosCliente(u.getId());
+				HttpSession  sesion = request.getSession();
+				sesion.setAttribute("user", u);
+				sesion.setAttribute("rol", rol);
+				sesion.setAttribute("cliente", c);
+	            request.getRequestDispatcher("index.jsp").forward(request, response);
+	            
+			}else if(rol.equalsIgnoreCase("profesional")) {
+				
+				HttpSession  sesion = request.getSession();
+				sesion.setAttribute("user", u);
+				sesion.setAttribute("rol", rol);
+	            request.getRequestDispatcher("PanelProfesional.jsp").forward(request, response);
+	            
+			}else if(rol.equalsIgnoreCase("administrador")) {
+				
+				HttpSession  sesion = request.getSession();
+				sesion.setAttribute("user", u);
+				sesion.setAttribute("rol", rol);
+	            request.getRequestDispatcher("PanelAdmin.jsp").forward(request, response);
+			}
 		}else {
-			out.print("<script>\r\n" + 
-					"        alert(\"Error de Datos\");\r\n" + 
-					"    </script>");  
+			 out.print("<p>Error de datos</p>");
+
 		}
-		
+        
+        
 	}
 }
