@@ -37,7 +37,12 @@ public class ServletLogin extends HttpServlet {
         String usu = request.getParameter("usuario");
         String con = request.getParameter("contrasena");
         String rol ="";
+<<<<<<< HEAD
+        System.out.println(usu);
+        System.out.println(con);
+=======
 
+>>>>>>> 730486e3406133634d2735eb086c3ad2424a1d63
         UsuarioDao dao = new UsuarioDao();
         
         Usuario u = dao.comprobarUsuario(usu,con);
@@ -69,8 +74,7 @@ public class ServletLogin extends HttpServlet {
 	            request.getRequestDispatcher("PanelAdmin.jsp").forward(request, response);
 			}
 		}else {
-			 out.print("<p>Error de datos</p>");
-
+			 out.println("<p>Error de datos</p>");
 		}
         
         

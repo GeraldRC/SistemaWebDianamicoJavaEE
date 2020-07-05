@@ -37,10 +37,7 @@
         <ul id="nav-mobile" class="right  hide-on-med-and-down">
         	<li><%out.print(rol.toUpperCase());%></li>
             <li><a  href="index.html">Inicio</a></li>
-
             <li><a class="cs" href="logout">Cerrar Sesión</a></li>
-
-
         </ul>
     </nav>
     <ul id="slide-out" class="sidenav">
