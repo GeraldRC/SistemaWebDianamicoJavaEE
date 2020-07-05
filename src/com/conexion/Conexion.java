@@ -21,9 +21,9 @@ public class Conexion {
 		url = "jdbc:oracle:thin:@localhost:1521:xe";
 			
 		try {
-			//Class.forName(driver);
+			Class.forName(driver);
 			con = DriverManager.getConnection(url, usuario, password);
-		}catch(SQLException e) {
+		}catch(SQLException | ClassNotFoundException e) {
 			e.printStackTrace();
 		}
 
