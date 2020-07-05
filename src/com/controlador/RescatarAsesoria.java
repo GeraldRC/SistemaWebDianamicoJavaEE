@@ -1,30 +1,23 @@
 package com.controlador;
 
 import java.io.IOException;
-import java.util.ArrayList;
-
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.dao.cheklistDao;
-import com.interfaces.ICheklistDao;
-import com.model.Cheklist;
 
-
-@WebServlet("/LeerCheklist")
-public class LeerCheklist extends HttpServlet {
+@WebServlet("/RescatarAsesoria")
+public class RescatarAsesoria extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
 
-
-    public LeerCheklist() {
+	
+    public RescatarAsesoria() {
 
     	
     }
-
 
 
     
@@ -34,22 +27,26 @@ public class LeerCheklist extends HttpServlet {
 	}
 
 
-
-	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
+		String estado;
 		
-		
-		ICheklistDao chekdao = new cheklistDao();
-		ArrayList<Cheklist> cheklist = new ArrayList<Cheklist>();
-		
-		cheklist = chekdao.leerChek();
-		
-		request.setAttribute("cheklist", cheklist);
-		request.getRequestDispatcher("  .jsp").forward(request, response);
+		String rutCliente = request.getParameter("cliente");
 		
 		
 		
+		
+	//	for() {
+			
+		
+		
+		estado = request.getParameter("");
+		
+		
+		
+		
+		
+		//}
 		
 		
 	}
