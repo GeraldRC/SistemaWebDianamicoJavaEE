@@ -16,10 +16,8 @@ public class Conexion {
 	private Conexion() {
 			
 		driver = "oracle.jdbc.driver.OracleDriver";
-
 		usuario = "gerald";
 		password =  "123456";
-
 		url = "jdbc:oracle:thin:@localhost:1521:xe";
 			
 		try {

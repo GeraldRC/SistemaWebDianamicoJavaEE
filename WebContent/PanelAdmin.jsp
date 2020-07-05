@@ -26,7 +26,7 @@
 <body>
 <% HttpSession sesion = request.getSession(); 
 	String rol ="";
-    if(sesion.getAttribute("rol") != null && sesion.getAttribute("rol").toString().equalsIgnoreCase("administrador")){
+    if(sesion.getAttribute("rol") != null && sesion.getAttribute("rol").equals("administrador")){
     	rol = sesion.getAttribute("rol").toString();
     }else{
     	response.sendRedirect("login.jsp");
@@ -37,10 +37,7 @@
         <ul id="nav-mobile" class="right  hide-on-med-and-down">
         	<li><%out.print(rol.toUpperCase());%></li>
             <li><a  href="index.html">Inicio</a></li>
-
-            <li><a class="cs" href="logout">Cerrar Sesión</a></li>
-
-
+            <li><a class="cs" href="login.html">Cerrar Sesión</a></li>
         </ul>
     </nav>
     <ul id="slide-out" class="sidenav">
