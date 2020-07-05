@@ -17,7 +17,6 @@ public class Conexion {
 			
 		driver = "oracle.jdbc.driver.OracleDriver";
 
-
 		usuario = "gerald";
 		password =  "123456";
 
