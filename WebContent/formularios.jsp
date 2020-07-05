@@ -24,9 +24,9 @@
 
 <body>
 <% HttpSession sesion = request.getSession(); 
-	String usuario ="";
-    if(sesion.getAttribute("usuario") != null){
-    	usuario = sesion.getAttribute("usuario").toString();
+	String rol ="";
+    if(sesion.getAttribute("rol") != null){
+    	rol = sesion.getAttribute("rol").toString();
     }else{
     	response.sendRedirect("login.jsp");
     }%>
@@ -35,7 +35,7 @@
         <a href="#" class="brand-logo">Sistema</a>
         <ul id="nav-mobile" class="right  hide-on-med-and-down">
             <li><a href="index.jsp">Inicio</a>< /li>
-            <li><a href="perfil.jsp"><%out.print(usuario.toUpperCase());%></a></li>
+            <li><a href="perfil.jsp"><%out.print(rol.toUpperCase());%></a></li>
             <li><a href="collapsible.html">JavaScript</a></li>
             <li><a class="cs" href="logout">Cerrar Sesión</a></li>
         </ul>

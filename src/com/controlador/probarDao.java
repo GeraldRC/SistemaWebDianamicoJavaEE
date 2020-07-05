@@ -10,7 +10,7 @@ public class probarDao {
 
 	public static void main(String[] args) {
 		
-		//Cheklist prueba = new Cheklist("esta es una prueba de cheklist ");
+		//Cheklist prueba = new Cheklist("esta es una prueba de cheklist 4");
 		
 		ICheklistDao pruebaDao = new cheklistDao();
 		

@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+    <%@ taglib prefix = "c" uri = "http://java.sun.com/jsp/jstl/core" %>
+    <%@ page import = "com.model.Cliente" %>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -25,9 +27,9 @@
 
 <body>
    <% HttpSession sesion = request.getSession(); 
-	String usuario ="";
-    if(sesion.getAttribute("usuario") != null){
-    	usuario = sesion.getAttribute("usuario").toString();
+	String rol ="";
+    if(sesion.getAttribute("rol") != null){
+    	rol = sesion.getAttribute("rol").toString();
     }else{
     	response.sendRedirect("login.jsp");
     }%>
@@ -36,7 +38,7 @@
         <a href="#" class="brand-logo">Sistema</a>
         <ul id="nav-mobile" class="right  hide-on-med-and-down">
             <li><a href="index.jsp">Inicio</a>< /li>
-            <li><a href="perfil.jsp"><%out.print(usuario.toUpperCase());%></a></li>
+            <li><a href="perfil.jsp"><%out.print(rol.toUpperCase());%></a></li>
             <li><a href="collapsible.html">JavaScript</a></li>
             <li><a class="cs" href="logout">Cerrar Sesión</a></li>
         </ul>
@@ -77,42 +79,38 @@
             <p><strong>Identificacion del Empleador</strong></p>
             <div class="row">
                 <div class="col s12 l6 blue-grey lighten-5">
-                    <input type="text" name="txtrazon">
+                    <input type="text" name="txtrazon" value="${cliente.razonsocial}">
                     <label for="txtrazon">Nombre o Razón Social</label>
                 </div>
                 <div class="col s12 l4 blue-grey lighten-5">
-                    <input type="text" name="txtrutempresa">
+                    <input type="text" name="txtrutempresa" value="${cliente.rut}" />
                     <label for="txtrutempresa">Rut</label>
                 </div>
             </div>
             <div class="row">
                 <div class="col s12 l6 blue-grey lighten-5">
-                    <input type="text" name="txtdireccion">
+                    <input type="text" name="txtdireccion" value="${cliente.direccion}">
                     <label for="txtdireccion">Direccion/Depto/nro</label>
                 </div>
                 <div class="col s12 l3 blue-grey lighten-5">
-                    <input type="text" name="txtcomempre">
+                    <input type="text" name="txtcomempre" value="${cliente.comuna}">
                     <label for="txtcomempre">Comuna</label>
                 </div>
                 <div class="col s12 l3 blue-grey lighten-5">
-                    <input type="text" name="txttel">
+                    <input type="text" name="txttel" value="${cliente.telefono}">
                     <label for="txttel">Telefono</label>
                 </div>
             </div>
             <div class="row">
                 <div class="col s12 l6 blue-grey lighten-5">
-                    <input type="text" name="txtactividad">
+                    <input type="text" name="txtactividad" value="${cliente.acteconomica}">
                     <label for="txtactividad">Actividad Economica</label>
-                </div>
-                <div class="col s12 l5 blue-grey lighten-5">
-                    <input type="text" name="txtpropiedad">
-                    <label for="txtpropiedad">Propiedad de la Empresa</label>
                 </div>
             </div>
             <div class="row">
                 <p><strong>Tipo de Empresa</strong></p>
                 <div class="col s12 l2 blue-grey lighten-5">
-                     <input type="text" name="txttipempresa">
+                     <input type="text" name="txttipempresa" value="${cliente.tipoEmpresa}">
                     <label for="txttipempresa">Tipo de Empresa</label>
                 </div>
             </div>
@@ -168,10 +166,6 @@
                     <input type="number" name="txteda">
                     <label for="txteda">Edad</label>
                 </div>
-                <div class="col s12 l4 blue-grey lighten-5">
-                    <input type="date" name="txtnacimiento" >
-                    <label for="txtnacimiento">Edad</label>
-                </div>
             </div>
             <div class="row">
                 <div class="col s12 l4 blue-grey lighten-5">
@@ -200,7 +194,6 @@
             </div>
         </form>
     </div>
-
 
     <!- Compiled and minified JavaScript -->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>

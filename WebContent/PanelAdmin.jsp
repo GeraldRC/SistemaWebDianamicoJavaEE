@@ -26,7 +26,7 @@
 <body>
 <% HttpSession sesion = request.getSession(); 
 	String rol ="";
-    if(sesion.getAttribute("rol") != null && sesion.getAttribute("rol").equals("administrador")){
+    if(sesion.getAttribute("rol") != null && sesion.getAttribute("rol").toString().equalsIgnoreCase("administrador")){
     	rol = sesion.getAttribute("rol").toString();
     }else{
     	response.sendRedirect("login.jsp");
