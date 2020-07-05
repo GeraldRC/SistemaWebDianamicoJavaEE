@@ -112,36 +112,8 @@
             <div class="row">
                 <p><strong>Tipo de Empresa</strong></p>
                 <div class="col s12 l2 blue-grey lighten-5">
-                    <p>
-                        <label>
-                            <input class="with-gap" name="tipoempresa" type="radio" />
-                            <span>Principal</span>
-                        </label>
-                    </p>
-                </div>
-                <div class="col s12 l2 blue-grey lighten-5">
-                    <p>
-                        <label>
-                            <input class="with-gap" name="tipoempresa" type="radio" />
-                            <span>Contratista</span>
-                        </label>
-                    </p>
-                </div>
-                <div class="col s12 l3 blue-grey lighten-5">
-                    <p>
-                        <label>
-                            <input class="with-gap" name="tipoempresa" type="radio" />
-                            <span>Sub-Contratista</span>
-                        </label>
-                    </p>
-                </div>
-                <div class="col s12 l4 blue-grey lighten-5">
-                    <p>
-                        <label>
-                            <input class="with-gap" name="tipoempresa" type="radio" />
-                            <span>Servicios Transitorios</span>
-                        </label>
-                    </p>
+                     <input type="text" name="txttipempresa">
+                    <label for="txttipempresa">Tipo de Empresa</label>
                 </div>
             </div>
             <hr>
