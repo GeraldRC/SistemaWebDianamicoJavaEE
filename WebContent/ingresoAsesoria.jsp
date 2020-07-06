@@ -2,6 +2,8 @@
     pageEncoding="ISO-8859-1"%>
 
 
+
+
 <%@ taglib prefix = "c" uri = "http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
@@ -14,25 +16,9 @@
 <body>
 
 
-    <select name="cliente" id="cliente">
-   		 <c:forEach items="${cheklist}" var="list">
-
-                 <option value="volvo">Volvo</option>
-                 
-                 ${list.getId()}
-
-            </c:forEach>
-    
-    
-        
-      </select>
-
 
     <form action="RescatarAsesoria" method="post">
-
-
         <table>
-
             <tr>
 
                 <th>id</th>
@@ -46,6 +32,7 @@
                 <th>NO APLICA</th>
 
             </tr>
+            
             <c:forEach items="${cheklist}" var="list">
 
                 <tr>
@@ -56,14 +43,17 @@
                     <td><input type="radio" name="${list.getId()}" value="2" ></td>
                     <td><input type="radio" name="${list.getId()}" value="3" ></td>
     
-    
-                </tr>
+                    </tr>
 
             </c:forEach>
 
         </table>
+        
+        
 
         <input type="submit" name="enviar" value="Enviar" />
+        
+        
 
     </form>
 
