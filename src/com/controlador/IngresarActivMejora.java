@@ -54,7 +54,7 @@ public class IngresarActivMejora extends HttpServlet {
 		ActivMejora acme = new ActivMejora(asesoria_id, id_1, estado_mejora_id, descripcion);
 		
 		ActivMejoraDao acmedao = new ActivMejoraDao();
-		boolean agregar = acmedao.ingresarActivMejora(acme);
+		boolean agregar = acmedao.registrarAcme(acme);
 		
 		String mensaje="";
 		

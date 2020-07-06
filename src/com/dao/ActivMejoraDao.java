@@ -19,7 +19,7 @@ public class ActivMejoraDao implements IActivMejoraDao {
 			Statement stm = null;
 			Connection con = null;
 		
-			String sql = "INSERT INTO CHEKLIST VALUES (null,'"+acme.getAcme()+"')";
+			String sql = "INSERT INTO CHEKLIST VALUES (null,'"+acme.getId_1()+"')";
 		
 
 			try {

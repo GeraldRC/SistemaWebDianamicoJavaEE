@@ -4,13 +4,14 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.Calendar;
+import java.util.GregorianCalendar;
 
 public class probarConexion {
 	
 	public static void main (String [] args) {
 		
-		
-		
+      
 		try {	
 	
 	Connection conexion = Conexion.getConexion();

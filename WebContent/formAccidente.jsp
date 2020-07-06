@@ -1,7 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
     <%@ taglib prefix = "c" uri = "http://java.sun.com/jsp/jstl/core" %>
-    <%@ page import = "com.model.Cliente" %>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -62,138 +61,113 @@
         </li>
         <li><a class="cs" href="logout">Cerrar Sesión</a></li>
     </ul>
+    <c:if test="${mensaje != null}">
+		<c:out value="${mensaje}" />
+    </c:if>
+    
     <div class="container">
         <h3 class="blue white-text">Formulario de Accidente</h3>
-        <form action="">
-            <div class="row">
-                <div class="col s12 l2  blue-grey lighten-5">
-                    <input type="text" name="txtserie" readonly>
-                    <label for="txtserie">Serie</label>
-                </div>
-                <div class="col s12 l2  blue-grey lighten-5 ">
-                    <input type="text" name="txtfecha" readonly>
-                    <label for="txtfecha">Fecha</label>
-                </div>
-            </div>
-            <hr>
+        <form action="accidente" method="post">
             <p><strong>Identificacion del Empleador</strong></p>
             <div class="row">
-                <div class="col s12 l6 blue-grey lighten-5">
-                    <input type="text" name="txtrazon" value="${cliente.razonsocial}">
+            	<div class="col s12 l4 green lighten-5">
+            		<input type="number" name="txtserie" required  class="validate" maxlength="38">
+                    <label for="txtserie">Ingrese Folio de Accidente (*)</label>
+            	</div>
+            </div>
+            <div class="row">
+                <div class="col s12 l6 green lighten-5">
+                    <input type="text" name="txtrazon" value="${cliente.razonsocial}" readonly />
                     <label for="txtrazon">Nombre o Razón Social</label>
                 </div>
-                <div class="col s12 l4 blue-grey lighten-5">
-                    <input type="text" name="txtrutempresa" value="${cliente.rut}" />
+                <div class="col s12 l4 green lighten-5">
+                    <input type="text" name="txtrucliente" value="${cliente.rut}" readonly/>
                     <label for="txtrutempresa">Rut</label>
                 </div>
             </div>
             <div class="row">
-                <div class="col s12 l6 blue-grey lighten-5">
-                    <input type="text" name="txtdireccion" value="${cliente.direccion}">
+                <div class="col s12 l6 green lighten-5">
+                    <input type="text" name="txtdireccion" value="${cliente.direccion}" readonly/>
                     <label for="txtdireccion">Direccion/Depto/nro</label>
                 </div>
-                <div class="col s12 l3 blue-grey lighten-5">
-                    <input type="text" name="txtcomempre" value="${cliente.comuna}">
+                <div class="col s12 l3 green lighten-5">
+                    <input type="text" name="txtcomempre" value="${cliente.comuna}" readonly/>
                     <label for="txtcomempre">Comuna</label>
                 </div>
-                <div class="col s12 l3 blue-grey lighten-5">
-                    <input type="text" name="txttel" value="${cliente.telefono}">
+                <div class="col s12 l3 green lighten-5">
+                    <input type="text" name="txttel" value="${cliente.telefono}" readonly/>
                     <label for="txttel">Telefono</label>
                 </div>
             </div>
             <div class="row">
-                <div class="col s12 l6 blue-grey lighten-5">
-                    <input type="text" name="txtactividad" value="${cliente.acteconomica}">
+                <div class="col s12 l6 green lighten-5">
+                    <input type="text" name="txtactividad" value="${cliente.acteconomica}" readonly/>
                     <label for="txtactividad">Actividad Economica</label>
                 </div>
             </div>
             <div class="row">
                 <p><strong>Tipo de Empresa</strong></p>
-                <div class="col s12 l2 blue-grey lighten-5">
-                     <input type="text" name="txttipempresa" value="${cliente.tipoEmpresa}">
+                <div class="col s12 l2 green lighten-5">
+                     <input type="text" name="txttipempresa" value="${cliente.tipoEmpresa}" readonly/>
                     <label for="txttipempresa">Tipo de Empresa</label>
                 </div>
             </div>
             <hr>
             <p><strong>Datos de Trabajador</strong></p>
             <div class="row">
-                <div class="col s12 l4  blue-grey lighten-5">
-                    <input type="text" name="txtnombrestra">
-                    <label for="txtnombres">Nombres</label>
+                <div class="col s12 l4  green lighten-5">
+                    <input type="text" name="txtnombrestra" required maxlength="50" class="validate">
+                    <label for="txtnombres">Nombres (*)</label>
                 </div>
-                <div class="col s12 l4  blue-grey lighten-5 ">
-                    <input type="text" name="txtapellidostra">
-                    <label for="txtapellidos">Apellidos</label>
-                </div>
-                <div class="col s12 l4  blue-grey lighten-5 ">
-                    <input type="text" name="txtruttra">
-                    <label for="txtruttra">Rut</label>
+                <div class="col s12 l4  green lighten-5 ">
+                    <input type="text" name="txtruttra" required maxlength="13" class="validate">
+                    <label for="txtruttra">Rut (*)</label>
                 </div>
             </div>
             <div class="row">
-                <div class="col s12 l6 blue-grey lighten-5">
-                    <input type="text" name="txtdirecciontra">
-                    <label for="txtdireccion">Direccion/Depto/nro</label>
+                <div class="col s12 l6 green lighten-5">
+                    <input type="text" name="txtdirecciontra" required maxlength="100" class="validate">
+                    <label for="txtdirecciontra">Direccion/Depto/nro (*)</label>
                 </div>
-                <div class="col s12 l3 blue-grey lighten-5">
-                    <input type="text" name="txtcomtra">
-                    <label for="txtcomempre">Comuna</label>
+                <div class="col s12 l3 green lighten-5">
+                    <input type="text" name="txtcomtra" required maxlength="100" class="validate">
+                    <label for="txtcomtra">Comuna (*)</label>
                 </div>
-                <div class="col s12 l3 blue-grey lighten-5">
-                    <input type="text" name="txtteltra">
-                    <label for="txttel">Telefono</label>
+                <div class="col s12 l3 green lighten-5">
+                    <input type="text" name="txtteltra" required maxlength="9" class="validate"> 
+                    <label for="txtteltra">Telefono (*)</label>
                 </div>
             </div>
             <div class="row">
-                <p><strong>Sexo</strong></p>
-                <div class="col s12 l2 blue-grey lighten-5">
+                <p><strong>Sexo (*)</strong></p>
+                <div class="col s12 l2 green lighten-5">
                     <p>
                         <label>
-                            <input class="with-gap" name="sexo" type="radio" />
-                            <span>Hombre</span>
+                            <input class="with-gap" name="sexo" type="radio"  value="Masculino" checked/>
+                            <span>Masculino</span>
                         </label>
                     </p>
                 </div>
-                <div class="col s12 l2 blue-grey lighten-5">
+                <div class="col s12 l2 green lighten-5">
                     <p>
                         <label>
-                            <input class="with-gap" name="sexo" type="radio" />
-                            <span>Mujer</span>
+                            <input class="with-gap" name="sexo" type="radio" value="Femenino" />
+                            <span>Femenino</span>
                         </label>
                     </p>
                 </div>
-                <div class="col s12 l2 blue-grey lighten-5">
-                    <input type="number" name="txteda">
-                    <label for="txteda">Edad</label>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col s12 l4 blue-grey lighten-5">
-                    <input type="text" name="txtnac">
-                    <label for="txtnac">Nacionalidad</label>
-                </div>
-                <div class="col s12 l3 blue-grey lighten-5">
-                    <input type="text" name="txtpro">
-                    <label for="txtpro">Profesión</label>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col s12 l2 blue-grey lighten-5">
-                    <input type="text" name="txtanttra">
-                    <label for="txtanttra">Antiguedad Empresa</label>
-                </div>
-                <div class=" input-field  col s12 l4 blue-grey lighten-5">
-                    <select name="tipocontrato" id="">
-                        <option value="" disabled selected>Tipo de Contrato</option>
-                        <option value="">Plazo Fijo</option>
-                        <option value="">Indefinido</option>
-                        <option value="">Por obra o Faena</option>
-                        <option value="">Trabajador Voluntario</option>
-                    </select>
+            </div>    
+                <div class="row">
+	                <div class="col s12 l4 ">
+	                    <button class="btn waves-effect waves-light" type="submit" name="action">Enviar Reporte
+	    					<i class="material-icons right">send</i>
+	 					 </button>
+	                </div>
                 </div>
             </div>
         </form>
     </div>
+   
 
     <!- Compiled and minified JavaScript -->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
