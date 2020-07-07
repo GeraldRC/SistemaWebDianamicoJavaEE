@@ -29,8 +29,21 @@ public class LeerCheklist extends HttpServlet {
 
     
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+
+
+	
+		
+		ICheklistDao chekdao = new cheklistDao();
+		ArrayList<Cheklist> cheklist = new ArrayList<Cheklist>();
+		
+		cheklist = chekdao.leerChek();
+		
+		request.setAttribute("cheklist", cheklist);
+		request.getRequestDispatcher("MostrarCheklist.jsp").forward(request, response);
+		
+	
+		
+		
 	}
 
 
@@ -40,13 +53,7 @@ public class LeerCheklist extends HttpServlet {
 
 		
 		
-		ICheklistDao chekdao = new cheklistDao();
-		ArrayList<Cheklist> cheklist = new ArrayList<Cheklist>();
 		
-		cheklist = chekdao.leerChek();
-		
-		request.setAttribute("cheklist", cheklist);
-		request.getRequestDispatcher("  .jsp").forward(request, response);
 		
 		
 		
