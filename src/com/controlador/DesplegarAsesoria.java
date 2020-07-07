@@ -16,25 +16,33 @@ import com.model.Cheklist;
 
 
 
-
-@WebServlet("/DesplegarCheklistAsesoria")
-public class DesplegarCheklistAsesoria extends HttpServlet {
+@WebServlet("/DesplegarAsesoria")
+public class DesplegarAsesoria extends HttpServlet {
 	private static final long serialVersionUID = 1L;
+       
 
 
 	
-	
-    public DesplegarCheklistAsesoria() {
-
-    	
+    public DesplegarAsesoria() {
+        super();
+        // TODO Auto-generated constructor stub
     }
 
 
+
+    
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
-		
-		
+		// TODO Auto-generated method stub
+		response.getWriter().append("Served at: ").append(request.getContextPath());
+	}
+
+
+
 	
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
+		int idSolicitudVisita = Integer.parseInt(request.getParameter("asesoria"));
+		System.out.println("id solicitud visita = " +idSolicitudVisita);
 		
 		ICheklistDao chekdao = new cheklistDao();
 		ArrayList<Cheklist> cheklist = new ArrayList<Cheklist>();
@@ -42,21 +50,11 @@ public class DesplegarCheklistAsesoria extends HttpServlet {
 		cheklist = chekdao.leerChek();
 		
 		request.setAttribute("cheklist", cheklist);
+		
+		request.setAttribute("idSolicitudVisita", idSolicitudVisita);
 		request.getRequestDispatcher("ingresoAsesoria.jsp").forward(request, response);
 		
 		
-		
-		
-		
-		
-	}
-
-
-
-	
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		doGet(request, response);
 	}
 
 }

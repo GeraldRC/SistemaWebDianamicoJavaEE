@@ -1,6 +1,7 @@
 package com.dao;
 
 import java.sql.Connection;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
@@ -8,6 +9,8 @@ import java.util.ArrayList;
 import com.conexion.Conexion;
 import com.interfaces.IVisitaDao;
 import com.model.Visita;
+
+;
 
 public class VisitaDao implements IVisitaDao{
 
@@ -61,9 +64,42 @@ public class VisitaDao implements IVisitaDao{
 	}
 
 	@Override
-	public Visita obtenerVisita(int idVisita) {
-		// TODO Auto-generated method stub
-		return null;
+	public Visita obtenerVisita(int idSolicitudVisita) {
+		
+		
+		Connection con = null;
+		Statement stm = null;
+		ResultSet rs = null;
+		
+		String sql = "select id_1 from visita where SOLICITUD_ID =" + idSolicitudVisita;
+		
+		System.out.println(sql);
+		
+		Visita v = new Visita();
+		try {
+			con = Conexion.getConexion();
+			stm = con.createStatement();
+			rs = stm.executeQuery(sql);
+			if (rs.next()) {
+				v.setID(rs.getInt(1));
+				v.setIDSolicitud(idSolicitudVisita);
+				
+				
+				
+			}
+			stm.close();
+			rs.close();
+			//con.close();
+		} catch(SQLException e) {
+			System.out.println("Error: Clase UsuarioDao, método obtenerUsuario ");
+			e.printStackTrace();
+		}
+		
+		return v;
+		
+		
+
+		
 	}
 
 }
