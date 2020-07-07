@@ -10,6 +10,7 @@ public interface ISolicitudesDao {
 	
 	public boolean crearSolicitud();
 	public ArrayList<Solicitudes> leerSolicitudes();
+	public ArrayList<Solicitudes> leerSolicitudesAgendadas();
 	public boolean actualizarSolicitudesPendientes(int id);
 	public boolean actualizarSolicitudesAgendadas(int id);
 	public boolean eliminarSolicitudes();

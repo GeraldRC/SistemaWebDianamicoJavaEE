@@ -8,10 +8,10 @@
 </head>
 <body>
 
-	<h1>${mensaje }</h1>
-	
-	<a href="${pageContext.request.contextPath}/SolicitudesPendientes">PLANIFICAR OTRA VISITA</a>
-	
-	<a href="${pageContext.request.contextPath}/LeerSolicitudesAgendadas"> REGISTRAR ASESORIA</a>
+
+<a href="${pageContext.request.contextPath}/LeerSolicitudesAgendadas">registrar asesoria</a>
+
+
+
 </body>
 </html>

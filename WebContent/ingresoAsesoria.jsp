@@ -15,9 +15,11 @@
 
 <body>
 
-
+<h1>INGRESO ASESORIA</h1>
 
     <form action="RescatarAsesoria" method="post">
+    
+    idSolicitudVisita <input type="text" readonly="readonly" name="idSolicitudVisita" value="${idSolicitudVisita}"/>
         <table>
             <tr>
 

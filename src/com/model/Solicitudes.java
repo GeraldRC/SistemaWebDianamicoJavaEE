@@ -12,6 +12,8 @@ public class Solicitudes {
 	
 	private String estadoString;
 	
+	private String fecha;
+	
 	
 
 
@@ -102,6 +104,22 @@ public class Solicitudes {
 
 
 
+	public String getFecha() {
+		return fecha;
+	}
+
+
+
+
+
+	public void setFecha(String fecha) {
+		this.fecha = fecha;
+	}
+
+
+
+
+
 	public String getNombreCliente() {
 		return nombreCliente;
 	}
@@ -180,9 +198,15 @@ public class Solicitudes {
 	@Override
 	public String toString() {
 		return "Solicitudes [ID=" + ID + ", rutCliente=" + rutCliente + ", nombreCliente=" + nombreCliente + ", estado="
-				+ estado + ", estadoString=" + estadoString + ", tipoSolicitud=" + tipoSolicitud
+				+ estado + ", estadoString=" + estadoString + ", fecha=" + fecha + ", tipoSolicitud=" + tipoSolicitud
 				+ ", tipoSolicitudString=" + tipoSolicitudString + "]";
 	}
+
+
+
+
+
+	
 
 
 

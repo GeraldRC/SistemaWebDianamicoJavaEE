@@ -11,6 +11,6 @@ public interface IVisitaDao {
 	public boolean modificarVisita();
 	public boolean eliminarVisita();
 	public ArrayList<Visita> leerVisita();
-	public Visita obtenerVisita(int idVisita);
+	public Visita obtenerVisita(int idSolicitudVisita);
 
 }
