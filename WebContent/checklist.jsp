@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+    <%@ taglib prefix = "c" uri = "http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 
@@ -24,12 +25,20 @@
 </head>
 
 <body>
+<% HttpSession sesion = request.getSession(); 
+	String rol ="";
+    if(sesion.getAttribute("rol") != null && sesion.getAttribute("rol").toString().equalsIgnoreCase("profesional")){
+    	rol = sesion.getAttribute("rol").toString();
+    }else{
+    	response.sendRedirect("login.jsp");
+    }%>
   <nav class="nav-wrapper blue lighten-1">
     <a href="#" data-target="slide-out" class="sidenav-trigger"><i class="material-icons">menu</i></a>
     <a href="#" class="brand-logo">Sistema</a>
     <ul id="nav-mobile" class="right hide-on-med-and-down">
-      <li><a href="index.html">Inicio</a></li>
-      <li><a class="cs" href="login.html">Cerrar Sesi�n</a></li>
+      <li><%out.print(rol.toUpperCase());%></li>
+      	<li><a href="PanelProfesional.jsp">PanelPro</a></li>
+      	<li><a class="cs" href="logout">Cerrar Sesion</a></li>
     </ul>
   </nav>
   <ul id="slide-out" class="sidenav">
@@ -43,23 +52,19 @@
         <a href="#email"><span class="white-text email">jdandturk@gmail.com</span></a>
       </div>
     </li>
-    <li><a href="perfil.jsp">Perfil</a></li>
-    <li><a href="formulario.html">Solicitar Visita</a></li>
-    <li><a href="collapsible.html">JavaScript</a></li>
+    <li><%out.print(rol.toUpperCase());%></li>
+      	<li><a href="PanelProfesional.jsp">PanelPro</a></li>
+      	<li><a class="cs" href="logout">Cerrar Sesion</a></li>
     <li>
       <div class="divider"></div>
     </li>
-    <li><a class="cs" href="logout">Cerrar Sesi�n</a></li>
+    <li><a class="cs" href="logout">Cerrar Sesion</a></li>
   </ul>
-
-
-
-
-
-
   <div class="row container">
     <h2>Ingreso de CheckList</h2>
-
+	<c:if test="${mensaje != null}"> 
+	      <span class="new badge red white-text red lighten-2">${mensaje.toUpperCase()}</span>
+    </c:if>
     <form action="IngresarChek" method="post">
     <div class="row">
       <div class="col s12 m3">
@@ -69,16 +74,7 @@
       </div>
     </div>
     </form>
-<br>
-
   </div>
-
-
-
-
-
-
-
 
   <script src="js/check.js"></script>
   <!- Compiled and minified JavaScript -->

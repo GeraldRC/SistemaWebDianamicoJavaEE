@@ -29,7 +29,7 @@ public class IngresarChek extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+		request.getRequestDispatcher("login.jsp").forward(request, response);
 	}
 
 
@@ -38,29 +38,45 @@ public class IngresarChek extends HttpServlet {
 
 		String chek = request.getParameter("txtcheck");
 		String mensaje;
+		if(chek.trim().length()==0) {
+			mensaje="Ingrese un Check";
+			request.setAttribute("mensaje", mensaje);
+			request.getRequestDispatcher("checklist.jsp").forward(request, response);
+			
+		}else {
+			Cheklist cheklist = new Cheklist(chek);//intancia de objeto check
 		
-		Cheklist cheklist = new Cheklist(chek);
+			ICheklistDao chekdao = new cheklistDao();//instancia de objeto daoCheck
 		
-		ICheklistDao chekdao = new cheklistDao();
+			ArrayList<Cheklist> lista = new ArrayList<Cheklist>();//instancia arrayList del tipo check para contener los objetos
 		
-		boolean registrar = chekdao.registrarChek(cheklist);
+			boolean registrar = chekdao.registrarChek(cheklist);// uso de metodo registrarCheck para obtener una respuesta
 		
-		if (registrar) {
-			mensaje = "se registro exitosamente el chek '" + chek + "'";
-		}
-		else {
+		
+			if (registrar) {
+				mensaje = "Registrado Exitosamente '"+chek.toUpperCase()+"'";
+				lista = chekdao.leerChek();
+				request.setAttribute("lista", lista);
+				request.setAttribute("mensaje", mensaje);
+				request.getRequestDispatcher("confirmacionChek.jsp").forward(request, response);
+			}else {
 			mensaje = "ocurrio algun problema al registrar el chek";
+			request.setAttribute("mensaje", mensaje);
+			request.getRequestDispatcher("checklist.jsp").forward(request, response);
+			}
+				
+			
 		}
 		
 		
-		ICheklistDao cheklistdao = new cheklistDao();
-		ArrayList<Cheklist> lista = new ArrayList<Cheklist>();
 		
-		lista = cheklistdao.leerChek();
 		
-		request.setAttribute("lista", lista);
-		request.setAttribute("mensaje", mensaje);
-		request.getRequestDispatcher("confirmacionChek.jsp").forward(request, response);
+		
+		
+
+		
+		
+		
 		
 				
 		

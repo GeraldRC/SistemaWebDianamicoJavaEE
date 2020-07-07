@@ -52,52 +52,55 @@
             </div>
         </li>
         <li><a href="perfil.jsp">Perfil</a></li>
-        <li><a href="formulario.html">Solicitar Visita</a></li>
-        <li><a href="collapsible.html">JavaScript</a></li>
+        <li><a href="checklist.jsp">Ingresar CheckList</a></li>
+        <li><a href="PlanificarVisita.jsp">Planificar Visita</a></li>
         <li>
             <div class="divider"></div>
         </li>
         <li><a class="cs" href="logout">Cerrar Sesión</a></li>
     </ul>
-    
-    <div class="row container">
-        <div class="col s12 m5 l6">
-            <h4 class="header">Ingresar CheckList</h4>
-            <div class="card horizontal hoverable">
-                <div class="card-image">
-                    <img src="imagenes/checklist.jpg">
-                </div> 
-                <div class="card-stacked">
-                    <div class="card-content">
-                        <p>Modulo especifico para la evaluación de Solicitudes
-                            de clientes los cuales tengan la necesidad de ingresar al sistema
-                        </p>
-                    </div>
-                    <div class="card-action">
-                        <a href="checklist.html">Ir</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="col s12 m5 l6">
-            <h4 class="header">Mantenedor de Usuarios</h4>
-            <div class="card horizontal hoverable">
-                <div class="card-image">
-                    <img src="imagenes/Usuario.jpg">
-                </div>
-                <div class="card-stacked">
-                    <div class="card-content">
-                        <p>Modulo especifico para la mantencion de Usuarios.</p>
-                    </div>
-                    <div class="card-action">
-                        <a href="regusers.html">Ir</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-        
+    <div class="container">
+    	<div class="row">
+	        <div class="col s12 m10">
+	            <h4 class="header">Ingresar CheckList</h4>
+	            <div class="card horizontal hoverable">
+	                <div class="card-image">
+	                    <img src="imagenes/checklist.jpg">
+	                </div> 
+	                <div class="card-stacked">
+	                    <div class="card-content">
+	                        <p>Modulo especifico para la evaluación de Solicitudes
+	                            de clientes los cuales tengan la necesidad de ingresar al sistema
+	                        </p>
+	                    </div>
+	                    <div class="card-action">
+	                        <a href="checklist.jsp">Ir</a>
+	                    </div>
+	                </div>
+	            </div>
+	        </div>
+    	</div>
+    	<div class="row">
+    		<div class="col s12 m10">
+	            <h4 class="header">Planificar Visita</h4>
+	            <div class="card horizontal hoverable">
+	                <div class="card-image">
+	                    <img src="imagenes/Usuario.jpg">
+	                </div>
+	                <div class="card-stacked">
+	                    <div class="card-content">
+	                        <p>Modulo especifico para la mantencion de Usuarios.</p>
+	                    </div>
+	                    <div class="card-action">
+	                        <a href="${pageContext.request.contextPath}/SolicitudesPendientes">PLANIFICAR VISITA</a>
+	                    </div>
+	                </div>
+	            </div>
+        	</div>
+    	</div>
     </div>
-  
+        
+
     <div class="row container">
         <hr>
         <p>Estadisticas del Sistema</p>
@@ -118,9 +121,7 @@
             document.addEventListener('DOMContentLoaded', function () {
                 M.AutoInit();
             });
-
-        </script>
-        
+    </script> 
 </body>
 
 </html>

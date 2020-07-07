@@ -28,7 +28,7 @@ public class ReporteAccidenteDao implements IAccidenteDao{
         int dia = fecha.get(Calendar.DAY_OF_MONTH);
 		
         String ano1= String.valueOf(año);
-        String mes1= String.valueOf(mes);
+        String mes1= String.valueOf(mes+1);
         String dia1= String.valueOf(dia);
         
 		try{
