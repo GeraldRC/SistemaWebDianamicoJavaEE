@@ -69,12 +69,12 @@
       <li><a class="cs" href="logout">Cerrar Sesión</a></li>
     </ul>
 
-  <form action="IngresarChek" method="post">
+  <form action="CrearCapacitacion" method="post">
     <div class="row">
       <div class="col s12 m3">
       	<h2> Crear Capacitación</h2>
-        <input type="text" id="txtcheck" name="txtcheck" />
-        <label for="txtcheck">Ingrese la Capacitación a Crear</label>
+        <input type="text" id="capacitacion" name="capacitacion" />
+        <label for="capacitacion">Ingrese la Capacitación a Crear</label>
         <br>
         <input type="submit" class="waves-effect waves-light btn" value="guardar" />
       </div>
