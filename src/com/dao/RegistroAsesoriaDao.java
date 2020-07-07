@@ -27,7 +27,7 @@ public class RegistroAsesoriaDao implements IRegistroAsesoriaDao{
 		int idCheklist = registro.getIdChek();
 		int estadoChek = registro.getValorChek();
 		
-		String sql2 = "INSERT INTO CHEKLIST-ASESORIA VALUES ('"+ idCheklist +"','"+ idAsesoria +"','"+ estadoChek +"')";
+		String sql2 = "INSERT INTO CHEKLIST_ASESORIA VALUES ('"+ idCheklist +"','"+ idAsesoria +"','"+ estadoChek +"')";
 		
 
 		try {
@@ -79,8 +79,10 @@ public class RegistroAsesoriaDao implements IRegistroAsesoriaDao{
 		
 		int idAsesoria = 0;
 		
+		System.out.println("id visita= " + numeroVista);
+		
 		String sql1 = "INSERT INTO ASESORIA VALUES (null,'"+ numeroVista +"')";
-		String sqlConsulta = " SELECT ID FROM ASESORIA WHERE VISITA_ID_1 ="+ numeroVista +"'";
+		String sqlConsulta = " SELECT ID FROM ASESORIA WHERE VISITA_ID_1 ='"+ numeroVista +"'";
 		
 		Statement stm = null;
 		Connection con = null;
@@ -101,7 +103,7 @@ public class RegistroAsesoriaDao implements IRegistroAsesoriaDao{
 				idAsesoria = rs.getInt(1);
 			}
 			
-			System.out.println(idAsesoria);
+			System.out.println("id asesoria en registro asesoriaDao= " + idAsesoria);
 			
 			stm.close();
 			

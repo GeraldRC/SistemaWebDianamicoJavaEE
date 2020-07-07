@@ -8,7 +8,10 @@
 </head>
 <body>
 
-<a href="${pageContext.request.contextPath}/DesplegarCheklistAsesoria">planificar visitas</a>
+<h1>${mensaje}</h1>
+	
+	<a href="${pageContext.request.contextPath}/SolicitudesPendientes">PLANIFICAR VISITA</a>
+	<a href="${pageContext.request.contextPath}/LeerSolicitudesAgendadas"> INGRESAR OTRA ASESORIA</a>
 
 </body>
 </html>
