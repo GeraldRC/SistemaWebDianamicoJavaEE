@@ -65,7 +65,7 @@
             <div class="col-s6">
                 <div class="card hoverable medium">
                     <div class="card-image">
-                       <img class="image" src="https://asesorias.com/empresas/wp-content/uploads/2020/01/como-crear-asesoria.jpg">
+                       <img class="image" src="http://www.legalium.com/wp-content/uploads/2016/03/accidentes-trafico.gif">
                       <span class="card-title  grey-text text-darken-4">Formulario Accidente</span>
                     </div>
                     <div class="card-content">

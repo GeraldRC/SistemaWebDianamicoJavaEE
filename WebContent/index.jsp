@@ -64,16 +64,16 @@
       </div>
       <div class="section white">
         <div class="row container">
-          <h2 class="header">Reportes De Accidentes</h2>
+          <h2 class="header">Solicitudes de Visitas</h2>
           <p class="grey-text text-darken-3 lighten-3">Parallax is an effect where the background content or image in this case, is moved at a different speed than the foreground content while scrolling.</p>
         </div>
       </div>
       <div class="parallax-container">
-        <div class="parallax"><img src="https://www.bbva.pe/content/dam/public-web/peru/photos/marquees/marquee-empresas-home-cuarentena.png.img.2400.1590933669745.png"></div>
+        <div class="parallax"><img src="https://saludlaboralydiscapacidad.org/wp-content/uploads/2018/12/accidentes-en-itinere-banner-saludlaboralydiscapacidad.png"></div>
       </div>
       <div class="section white">
         <div class="row container">
-          <h2 class="header">Seccion 2</h2>
+          <h2 class="header">Reportes De Accidentes</h2>
           <p class="grey-text text-darken-3 lighten-3">Parallax is an effect where the background content or image in this case, is moved at a different speed than the foreground content while scrolling.</p>
         </div>
       </div>
